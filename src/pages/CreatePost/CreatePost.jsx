@@ -1,4 +1,6 @@
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { createPost } from '../../redux/actionCreators/postActions';
 
 const CreatePost = () => {
   const {
@@ -8,7 +10,9 @@ const CreatePost = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = data => console.log(data);
+  const dispatch = useDispatch();
+
+  const onSubmit = data => dispatch(createPost(data));
 
   return (
     <div className='py-10'>
